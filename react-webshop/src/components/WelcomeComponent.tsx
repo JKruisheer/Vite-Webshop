@@ -1,23 +1,39 @@
-import {Component} from "react";
-import {Button, Stack, Text} from "@chakra-ui/react";
-import {TextStyles} from "../styles/TextStyles";
-import {StackStyles} from "../styles/StackStyles";
-import {DivStyles} from "../styles/DivStyles";
 
-export class WelcomeComponent extends Component {
-    render () {
+import {Button, Input, Stack, Text} from "@chakra-ui/react";
+import {useNavigate} from "react-router-dom";
+import {useRef, useState} from "react";
 
-        return (
-            <div style={DivStyles.WelcomeDivStyle}>
-                <Stack spacing={3} style={StackStyles.FlexCenter}>
-                    <Text fontSize='4xl'>Environment var: {import.meta.env.VITE_SOME_KEY}</Text>
-                    <Text fontSize='4xl'>Welkom bij de XXX dag</Text>
-                    <Text style={TextStyles.welcomeStyle}>
-                        Vandaag gaan we een webshop bouwen
-                    </Text>
-                    <Button>Ga naar de webshop</Button>
-                </Stack>
-            </div>
-        )
+const WelcomeComponent = () => {
+
+    const navigate = useNavigate();
+
+    const [url, setUrl] = useState('');
+
+    function handleClicker() : void {
+        navigate(url);
     }
+
+    const handleChange = (event : any ) => {
+        setUrl(event.target.value);
+    };
+
+    return (
+        <div className="WelcomeDivStyle">
+            <Stack spacing={3} className="FlexCenter">
+                <Text fontSize='4xl'>Welkom bij de woenzende zondag!</Text>
+                <Text>
+                    Vandaag gaan we een webshop bouwen
+                </Text>
+                <Input onChange={handleChange} value={url}></Input>
+                <Button
+                    onClick={handleClicker}>
+                    Ga naar de webshop</Button>
+                <div className="environment-data">
+                    <Text fontSize='1xl'>Environment var: {import.meta.env.VITE_SOME_KEY}</Text>
+                </div>
+            </Stack>
+        </div>
+    )
 }
+
+export default WelcomeComponent;

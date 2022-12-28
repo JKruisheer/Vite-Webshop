@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import './App.css'
-import {WelcomeComponent} from "./components/WelcomeComponent.tsx";
+import './App.scss'
+import WelcomeComponent from "./components/WelcomeComponent.tsx";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {IndexComponent} from "./components/IndexComponent";
 import {WebshopComponent} from "./components/WebshopComponent";

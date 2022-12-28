@@ -1,10 +1,5 @@
 import {Component} from "react";
-import {DivStyles} from "../styles/DivStyles";
 import {Outlet, Route, Routes} from "react-router-dom";
-import {WelcomeComponent} from "./WelcomeComponent";
-import {IndexComponent} from "./IndexComponent";
-import {UnknownPathComponent} from "./UnknownPathComponent";
-import TemplateComponent from "./templates/TemplateComponent";
 
 export class WebshopComponent extends Component {
     render () {
