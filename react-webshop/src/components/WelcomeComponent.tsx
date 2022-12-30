@@ -1,5 +1,5 @@
 
-import {Button, Input, Stack, Text} from "@chakra-ui/react";
+import {AspectRatio, Button, Input, Stack, Text, Image} from "@chakra-ui/react";
 import {useNavigate} from "react-router-dom";
 import {useRef, useState} from "react";
 
@@ -17,20 +17,31 @@ const WelcomeComponent = () => {
         setUrl(event.target.value);
     };
 
+    const handleKeyDown = (event : any) => {
+        if(event.key === 'Enter'){
+            handleClicker();
+        }
+    }
+
     return (
-        <div className="WelcomeDivStyle">
-            <Stack spacing={3} className="FlexCenter">
+        <div className="welcome-div-style">
+            <Stack spacing={6} className="flex-center">
                 <Text fontSize='4xl'>Welkom bij de woenzende zondag!</Text>
                 <Text>
                     Vandaag gaan we een webshop bouwen
                 </Text>
-                <Input onChange={handleChange} value={url}></Input>
+                <Input
+                    placeholder='Vul de URL in die je denkt dat de webshop is'
+                    variant='flushed'
+                    onChange={handleChange}
+                    type={'password'}
+                    onKeyDown={handleKeyDown}
+                    value={url}></Input>
                 <Button
                     onClick={handleClicker}>
                     Ga naar de webshop</Button>
-                <div className="environment-data">
-                    <Text fontSize='1xl'>Environment var: {import.meta.env.VITE_SOME_KEY}</Text>
-                </div>
+                {/*<Image src='https://media.tenor.com/7Wiek7XlUY8AAAAC/haha-so-funny.gif' alt='funny AF' objectFit='cover' />*/}
+
             </Stack>
         </div>
     )

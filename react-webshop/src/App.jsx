@@ -3,8 +3,8 @@ import './App.scss'
 import WelcomeComponent from "./components/WelcomeComponent.tsx";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {IndexComponent} from "./components/IndexComponent";
-import {WebshopComponent} from "./components/WebshopComponent";
-import {UnknownPathComponent} from "./components/UnknownPathComponent";
+import WebshopComponent from "./components/WebshopComponent";
+import UnknownPathComponent from "./components/UnknownPathComponent";
 import TemplateComponent from "./components/templates/TemplateComponent.tsx";
 
 function App() {
